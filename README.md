@@ -110,4 +110,4 @@ Adjust parameters inside the script:
 
 Full implementation details, equations, and design rationale are documented in:
 
-**advcomms_report.pdf**
+[Project Report (PDF)](report.pdf)
