@@ -218,60 +218,6 @@ for p = 1:length(EbNo_dB)
         legend(['' num2str(clckppm) ' ppm']);
         saveas(gcf,fname);
 
-        % n = (0:length(rxMF)-1).';
-        % mu = tau_hat-1;
-        % alpha = 0.01;
-        % 
-        % maxSymbols = floor((length(rxMF) - sps) / sps);
-        % rxClockRecovered = zeros(maxSymbols, 1);
-        % 
-        % mu_history = [];
-        % e_history = [];
-        % sps_e = sps * (1 + ppm*(2*alpha_r-1));
-        % ted_acc=0;
-        % k = 1;
-        % while (mu + sps/8) < length(rxMF)-1
-        %     x_center = interp1(n, rxMF, mu,        'linear', 0);
-        %     x_early  = interp1(n, rxMF, mu-sps/8,  'linear', 0);
-        %     x_late   = interp1(n, rxMF, mu+sps/8,  'linear', 0);
-        % 
-        % 
-        %     % --- early-late timing detector ---
-        %     ted = real(x_center)*(real(x_late)-real(x_early)) + ...
-        %           imag(x_center)*(imag(x_late)-imag(x_early));
-        % 
-        %     ted_acc = ted_acc+ted;
-        %     % --- advance pointer smoothly ---
-        %     if mod(k,10)==0                   
-        %         mu = mu + sps;
-        %         ted_acc=0;
-        %     else
-        %         mu = mu +sps;
-        %     end
-        % 
-        %         % --- store histories ---
-        %     mu_history = [mu_history; mu];
-        %     e_history  = [e_history; ted];
-        % 
-        %     rxClockRecovered(k) = x_center;
-        %     k = k + 1;
-        % end
-        % e_history = movmean(e_history,500);
-        % 
-        % rxClockRecovered = rxClockRecovered(1:k-1);
-        
-        % 
-        % figure('Name', 'Timing Recovery Diagnostics');
-        % % 
-        % subplot(2,1,1);
-        % plot(mod(mu_history,sps)); grid on;
-        % title('Fractional Timing Offset (should converge)');
-        % ylabel('μ mod sps');
-        % 
-        % subplot(2,1,2);
-        % plot(e_history); grid on;
-        % title('unwrap');
-        % ylabel('μ ');
 
         % -------- FINE CFO / PHASE TRACKING --------
         z = rxClockRecovered(:);
